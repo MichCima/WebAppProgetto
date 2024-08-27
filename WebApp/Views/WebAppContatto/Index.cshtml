@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApp.Models.WebAppContatto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rubrica</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContattoName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContattoCognome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContattoCitta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContattoTelefono)
+            </th>
+            <th>
+                <a asp-action="Aggiungi" class="btn btn-sm btn-success float-end">
+                    <i class="fa-solid fa-user-plus m-2"></i>Crea nuovo
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContattoName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContattoCognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContattoCitta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContattoTelefono)
+            </td>
+            <td class="d-flex justify-content-end">
+                <a asp-action="Modifica" asp-route-id="@item.ContattoID" class="btn btn-warning me-2">
+                    <i class="fa-solid fa-user-pen me-1"></i>Modifica
+                </a>
+                <a asp-action="Dettagli" asp-route-id="@item.ContattoID" class="btn btn-info me-2">
+                    <i class="fa-solid fa-address-card me-1"></i>Dettagli
+                </a>
+                <a asp-action="Elimina" asp-route-id="@item.ContattoID" class="btn btn-danger">
+                    <i class="fa-solid fa-user-xmark me-1"></i>Elimina
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

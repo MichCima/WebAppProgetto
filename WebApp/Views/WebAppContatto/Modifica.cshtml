@@ -1,0 +1,54 @@
+﻿@model WebApp.Models.WebAppContatto
+
+@{
+    ViewData["Title"] = "Modifica";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Modifica</h1>
+        <form asp-action="Modifica">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ContattoID" />
+            <input type="hidden" asp-for="UserId" value="@ViewData["UserId"]" />
+            <div class="form-group">
+                <label asp-for="ContattoName" class="control-label"></label>
+                <input asp-for="ContattoName" class="form-control" />
+                <span asp-validation-for="ContattoName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContattoCognome" class="control-label"></label>
+                <input asp-for="ContattoCognome" class="form-control" />
+                <span asp-validation-for="ContattoCognome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContattoCitta" class="control-label"></label>
+                <input asp-for="ContattoCitta" class="form-control" />
+                <span asp-validation-for="ContattoCitta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContattoTelefono" class="control-label"></label>
+                <input asp-for="ContattoTelefono" class="form-control" />
+                <span asp-validation-for="ContattoTelefono" class="text-danger"></span>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" value="Salva" class="btn btn-success w-100" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a asp-action="Index" class="btn btn-info w-100">
+                        <i class="fa-regular fa-address-book me-1"></i>
+                        Torna alla rubrica
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,46 @@
+﻿@model WebApp.Models.WebAppContatto
+
+@{
+    ViewData["Title"] = "Elimina";
+}
+
+<h1>Elimina</h1>
+
+<div>
+    <h4>Sicuro di voler eliminare questo contatto?</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContattoName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContattoName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContattoCognome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContattoCognome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContattoCitta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContattoCitta)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContattoTelefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContattoTelefono)
+        </dd>
+        
+    </dl>
+    <form asp-action="Elimina">
+        <input type="hidden" asp-for="ContattoID" />
+        <input type="submit" value="Elimina" class="btn btn-danger"/> 
+        <a asp-action="Index" class="btn btn-info">
+            <i class="fa-regular fa-address-book me-1"></i>Torna alla rubrica
+        </a>
+    </form>
+</div>
